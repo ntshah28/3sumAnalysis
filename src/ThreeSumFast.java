@@ -7,13 +7,18 @@ import java.io.IOException;
 
 public class ThreeSumFast {
 
-    public static int count(int[] a) {
+    public static int count(int[] a)
+    { // Count triples that sum to 0.
+        Arrays.sort(a);
+        int n = a.length;
         int count = 0;
-        //TODO: Finish THreeSumFast by first using Array.sort then use BinarySearch to help find the thrid number
-
+        for (int i = 0; i < n; i++)
+            for (int j = i+1; j < n; j++)
+                if (BinarySearch.indexOf(a, -a[i]-a[j]) > j)
+                    count++;
         return count;
-
     }
+
 
     public static void main(String[] args) throws IOException {
         In in = new In(args[0]);
